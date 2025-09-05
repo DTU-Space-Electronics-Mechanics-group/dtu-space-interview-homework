@@ -124,7 +124,7 @@ Hello world 1!
 
 # The homework
 
-Once you have created a new repository and gotten everything to work as described **we want the following sections of the readme to be completed with design details you can derive from studying the code and the environments structure.**
+Once you have created a new repository and gotten everything to work as described **we want the following sections of the readme to be completed with the design details each of them will request. As well as any coding assigments**
 
 # BLOCK DIAGRAM OF THE CODE DEPENDENCIES
 
@@ -141,7 +141,7 @@ See an example of a sequence diagram here:
 
 ![Example UML sequence diagram](docs/sequence-diagram-example.svg "Example UML sequence diagram")
 
-# UML-like CLASS DIAGRAM OF THE board_architecture_t STRUCTURE
+# UML-LIKE CLASS DIAGRAM OF THE board_architecture_t STRUCTURE
 
 Provide a UML-like class diagram of the board_architecture_t structure and all its children structures.
 
@@ -150,7 +150,7 @@ Provide a UML-like class diagram of the board_architecture_t structure and all i
 
 # DESCRIPTION OF THE STATE MACHINE FLOW
 
-Study the following operational state machine diagram and its associated code in "operational_sm.c" and provide a technical description of how the state transitions work.
+Study the following operational state machine diagram and its associated code in "operational_sm.c" and provide here a technical description of how the state transitions work.
 
 ![Operational state machine diagram](docs/I-DHU_Operational_Modes.png "Operational state machine diagram")
 
