@@ -1,0 +1,17 @@
+{
+  "files.associations": {
+    "glue.h": "c",
+    "dbg_glue.h": "c",
+    "clkgate.h": "c",
+    "clkgate_bits.h": "c",
+    "clock_gate.h": "c",
+    "clockhelper.h": "c",
+    "apbuart.h": "c",
+    "apbuart_driver.h": "c",
+    "pnp.h": "c",
+    "ambapp_ids.h": "c",
+    "clock_gate_driver.h": "c",
+    "board.h": "c",
+    "uart.h": "c"
+  }
+}

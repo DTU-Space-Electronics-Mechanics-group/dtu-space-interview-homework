@@ -1,0 +1,28 @@
+{
+    "configurations": [
+        {
+            "name": "gr740",
+            "includePath": [
+                "${workspaceFolder}/src/ASW",
+                "${workspaceFolder}/src/glue",
+                "${workspaceFolder}/src/glue/debug-terminal-source",
+                "${workspaceFolder}/src/glue/debug-terminal-source/circular_hist",
+                "${workspaceFolder}/src/glue/hw",
+                "${workspaceFolder}/src/glue/hw/dbg_cfg",
+                "${workspaceFolder}/src/glue/hw/gr740",
+                "${workspaceFolder}/src/glue/pc",
+                "${workspaceFolder}/src/glue/pc/dbg_cfg",
+                "${workspaceFolder}/src/include/FwProfile/src",
+                "/opt/${env:BCC_PREFIX}bcc-${env:BCC_VERSION}-gcc/src/libdrv/src/include",
+                "/opt/${env:BCC_PREFIX}bcc-${env:BCC_VERSION}-gcc/src/libdrv/src/cfg/gr716",
+                "/opt/${env:BCC_PREFIX}bcc-${env:BCC_VERSION}-gcc/src/libbcc/bsp/gr716",
+                "/opt/${env:BCC_PREFIX}bcc-${env:BCC_VERSION}-gcc/src/libbcc/bsp/gr716/include"
+            ],
+            "defines": [],
+            "compilerPath": "/opt/${env:BCC_PREFIX}bcc-${env:BCC_VERSION}-gcc/bin/sparc-gaisler-elf-gcc",
+            "intelliSenseMode": "gcc-x86",
+            "cStandard": "c11"
+        }
+    ],
+    "version": 4
+}

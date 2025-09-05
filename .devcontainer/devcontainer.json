@@ -1,0 +1,41 @@
+/*!
+   \file
+   \brief Dev container configuration for VSCode 
+   \author Denis Tcherniak
+   \date 13/06/2024
+   \copyright Copyright © [2024] Technical University of Denmark 
+   \copyright This code is licensed under BSD 3-Clause License (see LICENSE.txt for details)
+*/
+
+{
+    "name": "BCC VSCode Minimal Working Example (MWE) environment", // Name of the container
+    "build": { "dockerfile": "Dockerfile",                        // The dockerfile from which the container will be built
+
+              // Set some environment variables containing the username, 
+              // UID and GID for using when building the container.
+              // Note, bash does not set the GID environment variable,
+              // so we assume that it is the same as the GID, which might not be true in all cases.
+               "args": {
+                  "USER_NAME": "${localEnv:USER}",                
+                  "USER_UID": "${localEnv:USER_ID}",
+                  "USER_GID": "${localEnv:GROUP_ID}"                   
+               }
+             },
+    // Necessary argument for the docker container to be able to reach 
+    // the GRMON GDB server that will be running on the host system
+    "runArgs": [
+      "--add-host=host.docker.internal:host-gateway"                
+    ],    
+    // VS Code extensions that will be installed on the VS Code server within the docker container
+    "customizations": {
+      "vscode": {
+        "settings": {
+          "terminal.integrated.shell.linux": "/bin/bash"
+        },
+        "extensions": ["ms-vscode.cpptools-extension-pack",
+                      "webfreak.debug",
+                      "ms-vscode.makefile-tools",
+                      "mhutchie.git-graph"]
+      }
+    }
+  }

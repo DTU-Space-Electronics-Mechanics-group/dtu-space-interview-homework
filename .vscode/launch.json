@@ -1,0 +1,55 @@
+/*!
+   \file
+   \brief Launch/debug configuration for VSCode 
+   \author Denis Tcherniak
+   \date 13/06/2024
+   \copyright Copyright © [2024] Technical University of Denmark 
+   \copyright This code is licensed under BSD 3-Clause License (see LICENSE.txt for details)
+*/
+
+{
+"version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Debug XGIS DHU ASW HW version",
+        "type": "gdb",
+        "request": "launch",
+        "cwd": "${workspaceRoot}",
+        "target": "${workspaceRoot}/build/hw/XGIS_iDHU_ASW_gdb.elf",
+        "gdbpath": "/opt/${env:BCC_PREFIX}bcc-${env:BCC_VERSION}-gcc/bin/sparc-gaisler-elf-gdb",
+        "valuesFormatting": "parseText",
+        "autorun": [
+          "set output-radix 16",
+          "target extended-remote host.docker.internal:2222",
+          "monitor reset",
+          "file ${workspaceRoot}/build/hw/XGIS_iDHU_ASW_gdb.elf",
+          "stop",
+          "load ${workspaceRoot}/build/hw/XGIS_iDHU_ASW.elf",
+          "b main",
+          "run"
+        ],
+        "preLaunchTask": "Build XGIS DHU ASW HW version"
+      },
+      {
+        "name": "Debug XGIS DHU ASW PC version",
+        "type": "cppdbg",
+        "cwd": "${workspaceRoot}",
+        "request": "launch",
+        "program": "${workspaceRoot}/build/pc/XGIS-DHU-ASW-PC",
+        "args": [], // arguments to the program
+        "stopAtEntry": false,
+        "environment": [],
+        "externalConsole": false,
+        "MIMode": "gdb",
+        "miDebuggerPath": "/usr/bin/gdb", // replace with your gdb path
+        "setupCommands": [
+          {
+              "description": "Enable pretty-printing for gdb",
+              "text": "-enable-pretty-printing",
+              "ignoreFailures": true
+          }
+        ],
+        "preLaunchTask": "Build XGIS DHU ASW PC version"
+      }
+    ]
+}
