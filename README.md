@@ -156,8 +156,11 @@ Study the following operational state machine diagram and its associated code in
 
 # ADD DEBUG TERMINAL TELECOMANDS TO ENABLE STATE TRANSITIONS
 
-Currently the state transition guards are returning hardcoded values instead of doing the checks they should be doing. We would like you to, using the state machine logic presented above and in the existing code, write some debug terminal functions that set flags for the state machine guards to check and enable or prevent transitions.
+Currently the state transition guards are returning hardcoded values instead of doing the checks they should be doing. We would like you to do the following:
+- Write some debug terminal functions that emulate telecommands, by setting flags indicating that a telecommand has been received.
+- Add conditional checks to the state machine guards, they should check the respective telecommand flag enabled via the debug terminal (Ignore FTDI transitions).
+- Verify that all recheable states can be transitioned into.
 
 # Completing the homework
 
-After having completed the homework, we would like you to send us a link to your modified repository so we can review the homework prior to the interview. **Deadline is one day before the interview.**
+After having completed the homework, and commited and pushed your changes to your new repository, we would like you to send us a link to your modified repository so we can review the homework prior to the interview. **Deadline is one day before the interview.**
