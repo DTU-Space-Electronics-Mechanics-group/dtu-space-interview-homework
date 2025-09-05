@@ -52,6 +52,9 @@ Furthermore, in case use case 2 is used, a SSH key pair authentication should be
 
 For working with the repository it must be firts cloned/downloaded to your linux instance and then a new github repository needs to be created from the files you copied. It should initially look the same as the provided one.
 
+| :exclamation:  DO NOT FORK THE REPOSITORY.|
+|-----------------------------------------|
+
 # Dev Container configuration
 
 The dev container is configured in the `.devcontainer/devcontainer.json` file, the configuration is documented in the comments within the file. The docker container itself is built from the `.devcontainer/Dockerfile`. The dockerfile format is documented [here](https://docs.docker.com/reference/dockerfile/). A summary of how the docker container is built is as follows:
