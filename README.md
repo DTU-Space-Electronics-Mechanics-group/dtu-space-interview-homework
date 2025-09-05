@@ -8,7 +8,7 @@ This repository contains a working example of a typical DTU Space application so
 - Compilable source code for PC and GR740
 - A makefile structure to build the project and its libraries for two different compilation targets (PC and GR740)
 
-| :point_up:    | This exercise will focus only on the PC compilable source code |
+| :point_up:    | This guide will only provide steps for the PC compilable source code|
 |---------------|:------------------------|
 
 - VSCode configuration that allows the project to be built and de-bugged from VSCode
@@ -144,6 +144,9 @@ See an example of a sequence diagram here:
 # UML-like CLASS DIAGRAM OF THE board_architecture_t STRUCTURE
 
 Provide a UML-like class diagram of the board_architecture_t structure and all its children structures.
+
+| :point_up:    | Take notice that this structure belongs to the HW part of the source code.|
+|---------------|:------------------------|
 
 # DESCRIPTION OF THE STATE MACHINE FLOW
 
