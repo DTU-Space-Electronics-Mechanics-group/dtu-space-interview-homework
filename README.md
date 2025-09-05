@@ -124,7 +124,7 @@ Hello world 1!
 
 # The homework
 
-Once you have forked the repository and gotten everything to work as described **we want the following sections of the readme to be completed with design details you can derive from studying the code and the environments structure.**
+Once you have created a new repository and gotten everything to work as described **we want the following sections of the readme to be completed with design details you can derive from studying the code and the environments structure.**
 
 # BLOCK DIAGRAM OF THE CODE DEPENDENCIES
 
