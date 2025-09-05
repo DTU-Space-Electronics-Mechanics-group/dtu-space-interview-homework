@@ -1,4 +1,4 @@
-| :memo:        | The purpose of this repository is to give interviewees for the position of low level embedded software developer at DTU Space, the opportunity to prove their technical documentation and development skills by forking this repository and adding some design documentation text and images to this README.md file as well as some code. All the steps to follow and homework instructions are presented in this readme |
+| :memo:        | The purpose of this repository is to give interviewees for the position of low level embedded software developer at DTU Space, the opportunity to prove their technical documentation and development skills by taking this repository and adding some design documentation text and images to this README.md file, as well as some code. All the steps to follow and homework instructions are presented in this readme |
 |---------------|:------------------------|
 
 # What is this?
@@ -48,16 +48,9 @@ Regardless of whether use case 1 or 2 is used, the VS Code needs to have the fol
 
 Furthermore, in case use case 2 is used, a SSH key pair authentication should be set up between the Windows and the Linux machines as described [here](docs/ssh_authentication_between_windows_and_linux.md).
 
-# Clone this repository onto the Linux machine
+# Copy this repository onto your physical/virtual Linux machine and create a new github repository from it
 
-For working with the repository it must be cloned to the Linux machine:
-
-1. Fork this repository
-2. Clone it to your Linux machine
-
-```sh
-git clone <FORKED REPOSITORY URL> <PATH TO LOCATION ON YOUR MACHINE>
-```
+For working with the repository it must be firts cloned/downloaded to your linux instance and then a new github repository needs to be created from the files you copied. It should initially look the same as the provided one.
 
 # Dev Container configuration
 
@@ -161,4 +154,4 @@ Currently the state transition guards are returning hardcoded values instead of 
 
 # Completing the homework
 
-After having completed the homework, we would like you to submit a pull request from your forked repository so we can review the homework prior to the interview. **Deadline is one day before the interview.**
+After having completed the homework, we would like you to send us a link to your modified repository so we can review the homework prior to the interview. **Deadline is one day before the interview.**
