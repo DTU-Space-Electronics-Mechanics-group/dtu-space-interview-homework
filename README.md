@@ -134,6 +134,15 @@ Once you have forked the repository and gotten everything to work as described *
 
 Provide a block diagram showing the dependency structure of the code base.
 
+THIS IS MY BLOCK DIAGRAM
+
+''''''''
+'
+'
+'
+'
+''''''''
+
 # UML SEQUENCE DIAGRAM OF THE CODE BASE
 
 Provide a UML sequence diagram showing the flow of the code from the initialization routine to the iterative while (1) loop.
