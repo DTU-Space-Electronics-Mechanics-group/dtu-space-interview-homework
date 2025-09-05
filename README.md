@@ -1,4 +1,4 @@
-| :memo:        | The purpose of this repository is to give interviewees for the position of low level embedded software developer at DTU Space, the opportunity to prove their technical documentation skills by forking this repository and adding some design documentation text and images to this README.md file.       |
+| :memo:        | The purpose of this repository is to give interviewees for the position of low level embedded software developer at DTU Space, the opportunity to prove their technical documentation and development skills by forking this repository and adding some design documentation text and images to this README.md file as well as some code. All the steps to follow and homework instructions are presented in this readme |
 |---------------|:------------------------|
 
 # What is this?
@@ -154,3 +154,7 @@ Provide a UML-like class diagram of the board_architecture_t structure and all i
 Study the following operational state machine diagram and its associated code in "operational_sm.c" and provide a technical description of how the state transitions work.
 
 ![Operational state machine diagram](docs/I-DHU_Operational_Modes.png "Operational state machine diagram")
+
+# ADD DEBUG TERMINAL TELECOMANDS TO ENABLE STATE TRANSITIONS
+
+Currently the state transition guards are returning hardcoded values instead of doing the checks they should be doing. We would like you to, using the state machine logic presented above and in the existing code, write some debug terminal functions that set flags for the state machine guards to check and enable or prevent transitions.
