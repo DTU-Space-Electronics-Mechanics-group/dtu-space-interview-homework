@@ -1,23 +1,27 @@
+| :memo:        | The purpose of this repository is to give interviewees for the position of low level embedded software developer at DTU Space, the opportunity to prove their technical documentation skills by forking this repository and adding some design documentation text and images to this README.md file.       |
+|---------------|:------------------------|
+
 # What is this?
 
-This repository contains a working example of a DTU Space project running the Theseus XGIS DHU operational state machine and configured to be used in [Visual Studio Code (VS Code)](https://code.visualstudio.com/) for the gr740 development board. The project contains:
+This repository contains a working example of a typical DTU Space application software development project. It is ment to be used visual [Visual Studio Code (VS Code)](https://code.visualstudio.com/) and an ubunto linux machine. The project contains:
 
-- Compilable source code for a draft operational state machine of the Theseus XGIS DHU
-  ![Draft operational state machine](docs/I-DHU_Operational_Modes.png "Draft operational state machine")
-- A makefile to build the project
+- Compilable source code for PC and GR740
+- A makefile structure to build the project and its libraries for two different compilation targets (PC and GR740)
+
+| :point_up:    | This exercise will focus only on the PC compilable source code |
+|---------------|:------------------------|
+
 - VSCode configuration that allows the project to be built and de-bugged from VSCode
-- A [Dev Container](https://code.visualstudio.com/docs/devcontainers/create-dev-container) configuration that builds a [Docker container](https://docker.com/resources/what-container/) that contains and sets up the [BCC](https://gaisler.com/index.php/products/operating-systems/bcc) toolchain necessary for building the example project
+- A [Dev Container](https://code.visualstudio.com/docs/devcontainers/create-dev-container) configuration that builds a [Docker container](https://docker.com/resources/what-container/) that contains and sets up all the dependencies needed two compile for both deployment targets.
 
 # How to use this?
 
 There are some prerequisites that need to be fulfilled for using the example project:
 
 - A Linux machine (preferable with a Debian/Ubuntu based OS) that has:
-    - GRMON installed, is in path, and properly configured with the license key
-    - A physical connection DSU to the target system, in the case of the example a GR716A is used, so a UART connection is used
-    - Docker is installed and configured on the system (see instructions [here](https://docs.docker.com/engine/install/ubuntu/))
+    - Docker installed and configured on the system (see instructions [here](https://docs.docker.com/engine/install/ubuntu/))
     - Your current user is in the *docker* group (see instructions [here](https://docs.docker.com/engine/install/linux-postinstall/))
-    - git is installed
+    - git installed
     - The environment variables USER_ID and GROUP_ID must be defined:
         - Add the following to your profile `.bashrc`, `.zshrc`, etc.:
             ```sh
@@ -33,13 +37,7 @@ There are some prerequisites that need to be fulfilled for using the example pro
 There are two ways the system can be used:
 
 1. Running VS Code directly on the Linux machine (Use case 1)
-2. Running VS Code on a Windows machine and using the [Remote development](https://code.visualstudio.com/docs/remote/ssh) feature of VS Code for actuallt working on the Linux machine (Use case 2)
-
-The two configurations are illustrated below:
-
-![Use case 1](docs/use_case_1.png "Use case 1")
-
-![Use case 2](docs/use_case_2.png "Use case 2")
+2. Running VS Code on a Windows machine and using the [Remote development](https://code.visualstudio.com/docs/remote/ssh) feature of VS Code for actually working on the Linux machine (Use case 2)
 
 # VSCode configuration
 
@@ -54,8 +52,11 @@ Furthermore, in case use case 2 is used, a SSH key pair authentication should be
 
 For working with the repository it must be cloned to the Linux machine:
 
+1. Fork this repository
+2. Clone it to your Linux machine
+
 ```sh
-git clone https://ElectronicsAndMechanics@dev.azure.com/ElectronicsAndMechanics/ELMECH%20Embedded%20Coding%20Standard/_git/VScode_example <PATH TO LOCATION ON YOUR MACHINE>
+git clone <FORKED REPOSITORY URL> <PATH TO LOCATION ON YOUR MACHINE>
 ```
 
 # Dev Container configuration
@@ -65,8 +66,10 @@ The dev container is configured in the `.devcontainer/devcontainer.json` file, t
 1. The container is based on the latest version of Ubuntu.
 2. The desired versions of BCC and MKPROM2 are specified - this is done by declaring the environment variables `BCC_VERSION` and `MKPROM2_VERSION`. **NOTE:** In case BCC version >= 2.3.0 is desired the line starting with `ENV BCC_PREFIX` must be uncommented.
 
-3. The necessary dependencies are installed.
-4. The specified versions of BCC and MKPROM are downloaded, extracted and put into the system path.
+| :point_up:    | The BCC dependecy can be ignored for the PC version which we are going to compile |
+|---------------|:------------------------|
+
+3. The necessary dependencies are downloaded and installed.
 
 # Running the code
 
@@ -75,11 +78,6 @@ In order to run the code:
 For use case 1:
 
    - Open the cloned git repository folder in VS Code.
-   - Open another terminal on the Linux machine, this can either be done with a new instance of VS Code, [PuTTY](https://putty.org/), Powershell or any other SSH client.
-   - Navigate to the cloned git repository in this new terminal and launch GRMON by running `./launch_grmon.sh`
-        - Make sure that the DSU interface specified in the GRMON launch argument corresponds to the correct interface on your system.
-        - Make sure that the file is executable, if not, run `sudo chmod +x launch_grmon.sh`.
-        - **Make sure that the default GRMON GDB port 2222 is open in the Linux firewall `ufw allow 2222`.**
 
 For use case 2:
 
@@ -87,11 +85,6 @@ For use case 2:
    - Type and select `Remote-SSH: Connect to Host...`.
    - Choose the host you configured, see [here](docs/ssh_authentication_between_windows_and_linux.md).
    - Once connected to the remote host, you can open a folder on the remote machine by selecting `File -> Open Folder` and navigating to the desired directory, which is the directory into which you have cloned the git repository.
-   - Open another SSH connection to the Linux machine, this can either be done with a new instance of VS Code, [PuTTY](https://putty.org/), Powershell or any other SSH client.
-   - Navigate to the cloned git repository in this new terminal and launch GRMON by running `./launch_grmon.sh`
-        - Make sure that the DSU interface specified in the GRMON launch argument corresponds to the correct interface on your system.
-        - Make sure that the file is executable, if not, run `sudo chmod +x launch_grmon.sh`.
-        - Make sure that the default GRMON GDB port 2222 is open in the Linux firewall `ufw allow 2222`
 
 The rest of the steps are the same for both use cases:
 
@@ -99,32 +92,65 @@ The rest of the steps are the same for both use cases:
    - Type and select `Dev Containers: Reopen in Container`
    - VS Code will now build the container and re-open the folder within the container once ready
    - Open the `Run and Debug` sidebar (`Ctrl+Shift+D`)
+   - Choose the debug option for the PC version.
    - Press the green arrow or F5 to start debugging the project. This will:
-        - Automatically invoke the makefile to build the project
-        - Attach to GRMON over GDB
-        - Upload the code
+        - Automatically invoke the makefile to build the project with gcc
+        - Attach to it over GDB
         - Start the execution and break at the beginning of the `main` function
    - You can now, single step through the code, set breakpoints, monitor variables and registers using the watch function, monitor the call stack etc.
 
+# What can this code do?
 
-# How to use this in your own projects?
+Currently this code does two things:
 
-You can use this repository as a starting point for your own project by removing the .git repository after cloning. You can then re-initialize the repository and add all the files:
+- Runs a debug terminal application that allows the user to interface with the code by use of commands that run test functions within the code.
+- Creates, initializes and runs a space qualified state machine modelled after the typical operational modes of science processing application software for satellites.
 
-```sh
-rm -rf .git
-git init
-git add *
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://{yourserver}/{yourgit}/{yourproject}.git
-git push --force origin main
+# How to use the debug terminal
+
+The debug terminal works similarly to a linux terminal, you can use "ls" to list the contents of the file system the terminal exposes. The terminal is organised into folders and within this folders there can be other folders or test functions. An example of how to run the hellow world command can be seen below:
+
+```
+DTU Space - AIB EGSE custom simulator
+Debug interface - Copyright(c) DTU Space 2020
+/>ls
+        app             Application layer tests
+/>app
+/app>ls
+        /               Root directory
+        ..              Parent directory
+        hello_world             Prints Hello World
+        hist_dump               Prints the contents of the terminal history
+/app>hello_world 1
+Hello world 1!
+/app>
 ```
 
-## How to use git authentication?
+# The homework
 
-TBD
+Once you have forked the repository and gotten everything to work as described **we want the following sections of the readme to be completed with design details you can derive from studying the code and the environments structure.**
 
-# Makefile structure
+# BLOCK DIAGRAM OF THE CODE DEPENDENCIES
 
-TBD
+Provide a block diagram showing the dependency structure of the code base.
+
+# UML SEQUENCE DIAGRAM OF THE CODE BASE
+
+Provide a UML sequence diagram showing the flow of the code from the initialization routine to the iterative while (1) loop.
+
+| :point_up:    | Maybe consider splitting it into two diagrams, one for initialization and one for the while loop |
+|---------------|:------------------------|
+
+See an example of a sequence diagram here:
+
+![Example UML sequence diagram](docs/sequence-diagram-example.svg "Example UML sequence diagram")
+
+# UML-like CLASS DIAGRAM OF THE board_architecture_t STRUCTURE
+
+Provide a UML-like class diagram of the board_architecture_t structure and all its children structures.
+
+# DESCRIPTION OF THE STATE MACHINE FLOW
+
+Study the following operational state machine diagram and its associated code in "operational_sm.c" and provide a technical description of how the state transitions work.
+
+![Operational state machine diagram](docs/I-DHU_Operational_Modes.png "Operational state machine diagram")

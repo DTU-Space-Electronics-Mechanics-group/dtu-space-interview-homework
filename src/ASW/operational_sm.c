@@ -57,6 +57,7 @@ FwSmBool_t guard_calib_mode(FwSmDesc_t smDesc)
 
 	SYS_DESC_t* sys_desc = (SYS_DESC_t*) smDesc->smData;
 
+	//This guard should check if the CALIB TC flag is set via telecommand
 	return 0; // Placeholder for actual condition check
 	
 }
@@ -72,6 +73,7 @@ FwSmBool_t guard_obs_mode(FwSmDesc_t smDesc)
 
 	SYS_DESC_t* sys_desc = (SYS_DESC_t*) smDesc->smData;
 
+	//This guard should check if the OBS TC flag is set via telecommand
 	return 0; // Placeholder for actual condition check
 	
 }
@@ -87,6 +89,7 @@ FwSmBool_t guard_test_mode(FwSmDesc_t smDesc)
 
 	SYS_DESC_t* sys_desc = (SYS_DESC_t*) smDesc->smData;
 
+	//This guard should check if the TEST TC flag is set via telecommand
 	return 0; // Placeholder for actual condition check
 	
 }
@@ -102,6 +105,7 @@ FwSmBool_t guard_mem_mgt(FwSmDesc_t smDesc)
 
 	SYS_DESC_t* sys_desc = (SYS_DESC_t*) smDesc->smData;
 
+	//This guard should check if the MEM MGT TC flag is set via telecommand
 	return 0; // Placeholder for actual condition check
 	
 }
@@ -117,6 +121,7 @@ FwSmBool_t guard_standby_mode(FwSmDesc_t smDesc)
 
 	SYS_DESC_t* sys_desc = (SYS_DESC_t*) smDesc->smData;
 
+	//This guard should either check if the STANDBY TC flag is set via telecommand or if the system just started up
 	return 1; // Placeholder for actual condition check, it will autmatically transition to STANDBY upon startup
 	
 }
@@ -132,6 +137,7 @@ FwSmBool_t guard_fdir(FwSmDesc_t smDesc)
 
 	SYS_DESC_t* sys_desc = (SYS_DESC_t*) smDesc->smData;
 
+	//This guard should check if the FDIR flag has been set
 	return 0; // Placeholder for actual condition check
 	
 }
@@ -147,6 +153,7 @@ FwSmBool_t guard_boot(FwSmDesc_t smDesc)
 
 	SYS_DESC_t* sys_desc = (SYS_DESC_t*) smDesc->smData;
 
+	//This guard should check if the BOOT TC flag is set via telecommand
 	return 0; // Placeholder for actual condition check
 	
 }
@@ -162,6 +169,7 @@ FwSmBool_t guard_fdir_severity(FwSmDesc_t smDesc)
 
 	SYS_DESC_t* sys_desc = (SYS_DESC_t*) smDesc->smData;
 
+	//This guard should check if the FDIR low severity flag has been set (meaning that the system can still operate in STANDBY mode) otherwise it will go to SAFE mode
 	return 0; // Placeholder for actual condition check
 	
 }
